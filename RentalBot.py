@@ -39,7 +39,7 @@ def send_welcome(message):
 
 
 @bot.message_handler(commands=['harga'])
-def harga(message):
+def detailharga(message):
     chat_id = message.chat.id
 
     custom = types.ReplyKeyboardMarkup()
@@ -62,7 +62,7 @@ def harga(message):
 
 
 @bot.message_handler(commands=['katalog'])
-def harga(message):
+def katalog(message):
     chat_id = message.chat.id
 
     custom = types.ReplyKeyboardMarkup()
@@ -207,7 +207,7 @@ def text(message):
 
 
 @bot.message_handler(commands=['sop'])
-def harga(message):
+def sop(message):
     chat_id = message.chat.id
 
     custom = types.ReplyKeyboardMarkup()
@@ -292,7 +292,7 @@ def detailharga(message):
 
 
 @bot.message_handler(commands=['wedding'])
-def harga(message):
+def detailharga(message):
     bot.reply_to(
         message, 'Price List Wedding Package : \n\n'
         'Jenis Kendaraan : Alphard G \nType Kendaran : Facelift \nTahun Pembuatan : 2019 \nWarna Kendaraan : Hitam \n12 Jam All In : Rp. 2.900.000 \n12 Jam : Rp. 2.600.000\nAll In (Driver + BBM + Tol + Parkir).\n\n'
@@ -306,7 +306,7 @@ def harga(message):
 
 
 @bot.message_handler(commands=['sop_allin'])
-def detailharga(message):
+def sop(message):
     chat_id = message.chat.id
     # input sql
     sql.execute(
@@ -330,7 +330,7 @@ def detailharga(message):
 
 
 @bot.message_handler(commands=['sop_mblsupir'])
-def detailharga(message):
+def sop(message):
     chat_id = message.chat.id
     # input sql
     sql.execute(
@@ -354,7 +354,7 @@ def detailharga(message):
 
 
 @bot.message_handler(commands=['sop_Lpkunci'])
-def detailharga(message):
+def sop(message):
     chat_id = message.chat.id
     # input sql
     sql.execute(
@@ -378,7 +378,7 @@ def detailharga(message):
 
 
 @bot.message_handler(commands=['sop_wedding'])
-def detailharga(message):
+def sop(message):
     chat_id = message.chat.id
     # input sql
     sql.execute(
