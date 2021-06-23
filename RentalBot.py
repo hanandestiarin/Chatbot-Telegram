@@ -1,5 +1,6 @@
 import telebot
 import mysql.connector
+from telebot import types
 
 mydb = mysql.connector.connect(
     host='localhost',
@@ -17,30 +18,215 @@ bot = telebot.TeleBot(api)
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    nama = message.from_user.first_name
-    nama_akhir = message.from_user.last_name
-    bot.reply_to(
-        message, 'Selamat Datang Di Rental Mobil.\nHalo {} {}\n'.format(nama, nama_akhir))
+    chat_id = message.chat.id
+
+    custom = types.ReplyKeyboardMarkup()
+    a = types.KeyboardButton('/start')
+    b = types.KeyboardButton('/katalog')
+    c = types.KeyboardButton('/harga')
+    d = types.KeyboardButton('/sop')
+
+    custom.row(a)
+    custom.row(b)
+    custom.row(c)
+    custom.row(d)
+
+    bot.send_message(
+        chat_id, 'Selamat Datang Di Rental Mobil.\n\n'
+        'Untuk melihat katalog silakan ketik /katalog\n\n'
+        'Untuk melihat daftar harga silakan ketik /harga\n\n'
+        'Untuk melihat Syarat Dan Ketentuan Yang Berlaku silakan ketik /sop', reply_markup=custom)
 
 
 @bot.message_handler(commands=['harga'])
 def harga(message):
-    bot.reply_to(
-        message, 'Untuk melihat detail harga : '
-        '\nPrice List All In /Allin'
-        '\nPrice List Mobil Supir /Mblsupir'
-        '\nPrice List Lepas Kunci /LpKunci'
-        '\nPrice List Wedding Package /wedding')
+    chat_id = message.chat.id
+
+    custom = types.ReplyKeyboardMarkup()
+    a = types.KeyboardButton('/Allin')
+    b = types.KeyboardButton('/Mblsupir')
+    c = types.KeyboardButton('/LpKunci')
+    d = types.KeyboardButton('/wedding')
+    e = types.KeyboardButton('/start')
+
+    custom.row(a, b)
+    custom.row(c, d)
+    custom.row(e)
+
+    bot.send_message(chat_id, 'Untuk melihat detail harga : '
+                     '\nPrice List All In /Allin'
+                     '\nPrice List Mobil Supir /Mblsupir'
+                     '\nPrice List Lepas Kunci /LpKunci'
+                     '\nPrice List Wedding Package /wedding'
+                     '\nUntuk kembali ke menu awal silakan ketik /start', reply_markup=custom)
+
+
+@bot.message_handler(commands=['katalog'])
+def harga(message):
+    chat_id = message.chat.id
+
+    custom = types.ReplyKeyboardMarkup()
+    a = types.KeyboardButton('/mobil1')
+    b = types.KeyboardButton('/mobil2')
+    c = types.KeyboardButton('/mobil3')
+    d = types.KeyboardButton('/mobil4')
+    e = types.KeyboardButton('/mobil5')
+    f = types.KeyboardButton('/mobil6')
+    g = types.KeyboardButton('/mobil7')
+    h = types.KeyboardButton('/mobil8')
+    i = types.KeyboardButton('/mobil9')
+    j = types.KeyboardButton('/mobil10')
+    k = types.KeyboardButton('/mobil11')
+    l = types.KeyboardButton('/mobil12')
+    m = types.KeyboardButton('/mobil13')
+    n = types.KeyboardButton('/mobil14')
+    o = types.KeyboardButton('/mobil15')
+    p = types.KeyboardButton('/mobil16')
+    q = types.KeyboardButton('/start')
+
+    custom.row(a, b, c, d)
+    custom.row(e, f, g, h)
+    custom.row(i, j, k, l)
+    custom.row(m, n, o, p)
+    custom.row(q)
+
+    bot.send_message(chat_id, 'Untuk melihat jenis mobil : '
+                     '\nAlphard Facelift /mobil1'
+                     '\nAlphard Transformer /mobil2'
+                     '\nMercy E 250 /mobil3'
+                     '\nMercy E 300 /mobil4'
+                     '\nMercy S 400 /mobil5'
+                     '\nMercy S 450 /mobil6'
+                     '\nPajero Sport Dakar /mobil7'
+                     '\nFortuner Vrz-Trd /mobil8'
+                     '\nElf Long /mobil9'
+                     '\nHiace Commuter /mobil10'
+                     '\nHyundai H1 /mobil11'
+                     '\nCR-V Prestige /mobil12'
+                     '\nInnova Reborn /mobil13'
+                     '\nXPander Ultimate /mobil14'
+                     '\nToyota Voxy /mobil15'
+                     '\nCamry /mobil16'
+                     '\n\nUntuk kembali ke menu awal silakan ketik /start', reply_markup=custom)
+
+
+@bot.message_handler(commands=['mobil1'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('1.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil2'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('2.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil3'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('3.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil4'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('4.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil5'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('5.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil6'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('6.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil7'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('7.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil8'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('8.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil9'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('9.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil10'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('10.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil11'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('11.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil12'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('12.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil13'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('13.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil14'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('14.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil15'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('15.png', 'rb'))
+
+
+@bot.message_handler(commands=['mobil16'])
+def text(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid, open('16.png', 'rb'))
 
 
 @bot.message_handler(commands=['sop'])
 def harga(message):
-    bot.reply_to(
-        message, 'Untuk melihat Syarat Dan Ketentuan Yang Berlaku : '
-        '\n\nSyarat Dan Ketentuan All In /sop_allin'
-        '\n\nSyarat Dan Ketentuan Mobil Supir /sop_mblsupir'
-        '\n\nSyarat Dan Ketentuan Lepas Kunci /sop_Lpkunci'
-        '\n\nSyarat Dan Ketentuan Wedding Package /sop_wedding')
+    chat_id = message.chat.id
+
+    custom = types.ReplyKeyboardMarkup()
+    a = types.KeyboardButton('/sop_allin')
+    b = types.KeyboardButton('/sop_mblsupir')
+    c = types.KeyboardButton('/sop_Lpkunci')
+    d = types.KeyboardButton('/sop_wedding')
+    e = types.KeyboardButton('/start')
+
+    custom.row(a, b)
+    custom.row(c, d)
+    custom.row(e)
+    bot.send_message(
+        chat_id, 'Untuk melihat detail Syarat Dan Ketentuan Yang Berlaku : '
+        '\n\nSyarat Dan Ketentuan All In  silakan ketik /sop_allin'
+        '\n\nSyarat Dan Ketentuan Mobil Supir silakan ketik /sop_mblsupir'
+        '\n\nSyarat Dan Ketentuan Lepas Kunci siakan ketik /sop_Lpkunci'
+        '\n\nSyarat Dan Ketentuan Wedding Package silakan ketik /sop_wedding'
+        '\n\n Untuk kembali ke menu awal silakan ketik /start', reply_markup=custom)
 
 
 @bot.message_handler(commands=['Allin'])
