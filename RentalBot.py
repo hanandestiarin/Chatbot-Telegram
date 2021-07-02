@@ -113,97 +113,99 @@ def katalog(message):
 @bot.message_handler(commands=['mobil1'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('1.png', 'rb'))
+    # with open("C:\\Telegram Bot\\1.png", encoding='utf8', errors='ignore')
+    bot.send_photo(chatid, open('C:\Telegram Bot\\1.png', 'rb'))
+    # bot.send_photo(chatid, open("C:\\Telegram Bot\\1.png"))
 
 
 @bot.message_handler(commands=['mobil2'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('2.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\2.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil3'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('3.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\3.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil4'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('4.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\4.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil5'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('5.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\5.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil6'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('6.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\6.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil7'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('7.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\7.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil8'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('8.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\8.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil9'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('9.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\9.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil10'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('10.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\10.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil11'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('11.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\11.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil12'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('12.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\12.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil13'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('13.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\13.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil14'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('14.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\14.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil15'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('15.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\15.png', 'rb'))
 
 
 @bot.message_handler(commands=['mobil16'])
 def text(message):
     chatid = message.chat.id
-    bot.send_photo(chatid, open('16.png', 'rb'))
+    bot.send_photo(chatid, open('C:\Telegram Bot\\16.png', 'rb'))
 
 
 @bot.message_handler(commands=['sop'])
