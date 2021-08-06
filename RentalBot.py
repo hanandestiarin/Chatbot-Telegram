@@ -12,7 +12,7 @@ print(mydb)
 # memberi input ke sql
 sql = mydb.cursor()
 
-api = '1805788621:AAG6FAFBNcvkL6wi6reK1l2r-AC_BQbW-Xg'
+api = 'isi token api yg diberikan bot father telegram'
 bot = telebot.TeleBot(api)
 
 
@@ -93,20 +93,20 @@ def katalog(message):
     bot.send_message(chat_id, 'Untuk melihat jenis mobil : '
                      '\nAlphard Facelift /mobil1'
                      '\nAlphard Transformer /mobil2'
-                     '\nMercy E 250 /mobil3'
-                     '\nMercy E 300 /mobil4'
-                     '\nMercy S 400 /mobil5'
-                     '\nMercy S 450 /mobil6'
-                     '\nPajero Sport Dakar /mobil7'
-                     '\nFortuner Vrz-Trd /mobil8'
-                     '\nElf Long /mobil9'
-                     '\nHiace Commuter /mobil10'
+                     '\nMercedes-Benz E 250 /mobil3'
+                     '\nMercedes-Benz E 300 AMG /mobil4'
+                     '\nMercedes-Benz S 400 /mobil5'
+                     '\nMercedes-Benz S 450 /mobil6'
+                     '\nPajero Sport Dakar 2x4 /mobil7'
+                     '\nFortuner VRZ-TRD /mobil8'
+                     '\nElf Long 19 Seat /mobil9'
+                     '\nHiace Commuter M/ T DSL 19 /mobil10'
                      '\nHyundai H1 /mobil11'
                      '\nCR-V Prestige /mobil12'
                      '\nInnova Reborn /mobil13'
                      '\nXPander Ultimate /mobil14'
                      '\nToyota Voxy /mobil15'
-                     '\nCamry /mobil16'
+                     '\nToyota Camry 2.5 V A/ T /mobil16'
                      '\n\nUntuk kembali ke menu awal silakan ketik /start', reply_markup=custom)
 
 
@@ -295,16 +295,26 @@ def detailharga(message):
 
 @bot.message_handler(commands=['wedding'])
 def detailharga(message):
-    bot.reply_to(
-        message, 'Price List Wedding Package : \n\n'
-        'Jenis Kendaraan : Alphard G \nType Kendaran : Facelift \nTahun Pembuatan : 2019 \nWarna Kendaraan : Hitam \n12 Jam All In : Rp. 2.900.000 \n12 Jam : Rp. 2.600.000\nAll In (Driver + BBM + Tol + Parkir).\n\n'
-        'Jenis Kendaraan : Alphard G \nType Kendaran : Transformer \nTahun Pembuatan : 2017 Up \nWarna Kendaraan : Hitam, Putih \n12 Jam All In : Rp. 2.800.000 \n12 Jam : Rp. 2.500.000\nAll In (Driver + BBM + Tol + Parkir).\n\n'
-        'Jenis Kendaraan : Mecedez-Benz \nType Kendaran : E250 \nTahun Pembuatan : 2018 Up \nWarna Kendaraan : Hitam \n12 Jam All In : Rp. 4.000.000 \n12 Jam : Rp. 3.500.000\nAll In (Driver + BBM + Tol + Parkir).\n\n'
-        'Jenis Kendaraan : Mecedez-Benz \nType Kendaran : E300 AMG \nTahun Pembuatan : 2018 \nWarna Kendaraan : Hitam, Putih \n12 Jam All In : Rp. 3.500.000 \n12 Jam : Rp. 3.000.000\nAll In (Driver + BBM + Tol + Parkir).\n\n'
-        'Jenis Kendaraan : Mecedez-Benz \nType Kendaran : S400 \nTahun Pembuatan : 2018 \nWarna Kendaraan : Hitam \nDari 05.00 - 22.59 : Rp. 14.000.000 \n12 Jam : Rp. 10.500.000\nAll In (Driver + BBM + Tol + Parkir).\n\n'
-        'Jenis Kendaraan : Mecedez-Benz \nType Kendaran : S450 \nTahun Pembuatan : 2018 \nWarna Kendaraan : Hitam \nDari 05.00 - 22.59 : Rp. 16.500.000 \n12 Jam : Rp. 12.500.000\nAll In (Driver + BBM + Tol + Parkir).\n\n'
-        'Jenis Kendaraan : CR-V Turbo \nType Kendaran : Prestige \nTahun Pembuatan : 2019 \nWarna Kendaraan : Hitam \nHarga Dalam Kota : Rp. 2.500.000 \nHarga Luar Kota : Rp. 2.300.000\nAll In (Driver + BBM + Tol + Parkir).\n\n'
-        'Jenis Kendaraan : Toyota Camry \nType Kendaran : 2.5 V A/T \nTahun Pembuatan : 2019 \nWarna Kendaraan : Hitam \nHarga Dalam Kota : Rp. 2.100.000 \nHarga Luar Kota : Rp. 1.800.000\nAll In (Driver + BBM + Tol + Parkir).\n\n')
+    chat_id = message.chat.id
+    # input sql
+    sql.execute(
+        "select*from wedding_full")
+    hasil_sql = sql.fetchall()
+    # print(hasil_sql)
+    # pesan  yang dikirim oleh bot
+    for x in hasil_sql:
+        jenis = x[0]
+        type = x[1]
+        pembuatan = x[2]
+        warna = x[3]
+        harga1 = x[4]
+        harga2 = x[5]
+        harga3 = x[6]
+        harga4 = x[7]
+        harga5 = x[8]
+        pesan = "Price List Wedding : \n\nNama Kendaran : %s\nType Kendaran : %s\nTahun Pembuatan : %s\nWarna kendaran : %s\nHarga 12 Jam All In: %s\nHarga 12 Jam: %s\nHarga Dari 05.00 - 22.59: %s\nHarga Dalam Kota :%s\nHarga Luar Kota: %s\nAll In (Driver + BBM + Tol + Parkir)\n" % (
+            jenis, type, pembuatan, warna, harga1, harga2, harga3, harga4, harga5)
+        bot.send_message(chat_id, pesan)
 
 
 @bot.message_handler(commands=['sop_allin'])
